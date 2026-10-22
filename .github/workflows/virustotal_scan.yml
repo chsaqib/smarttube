@@ -13,6 +13,7 @@ jobs:
   virustotal_scan:
     permissions:
       contents: write
+    if: github.repository == 'yuliskov/SmartTube'
     runs-on: ubuntu-latest
     env:
       HAS_VT_KEY: ${{ secrets.VIRUS_TOTAL_API_KEY != '' }}

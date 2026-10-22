@@ -1,0 +1,31 @@
+<resources>
+    <string name="phone_app_name">SmartTube</string>
+    <string name="phone_home">Home</string>
+    <string name="phone_trending">Trending</string>
+    <string name="phone_search">Search</string>
+    <string name="phone_search_hint">Search YouTube</string>
+    <string name="phone_results">Search results</string>
+    <string name="phone_searching">Searching YouTube…</string>
+    <string name="phone_loading_home">Loading videos…</string>
+    <string name="phone_empty">No videos found. Try searching.</string>
+    <string name="phone_network_error">Could not load videos. Check your connection and try again.</string>
+    <string name="phone_retry">Retry</string>
+    <string name="phone_load_more">Load more videos</string>
+
+    <color name="youtube_red">#FF0000</color>
+    <color name="youtube_black">#0F0F0F</color>
+    <color name="youtube_dark_card">#0F0F0F</color>
+    <color name="youtube_dark_search">#212121</color>
+    <color name="youtube_text_primary">#FFFFFF</color>
+    <color name="youtube_text_secondary">#AAAAAA</color>
+
+    <style name="PhoneTheme" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:colorAccent">@color/youtube_red</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">@color/youtube_black</item>
+        <item name="android:navigationBarColor">@color/youtube_black</item>
+        <item name="android:windowBackground">@color/youtube_black</item>
+        <item name="android:windowActionModeOverlay">true</item>
+    </style>
+</resources>

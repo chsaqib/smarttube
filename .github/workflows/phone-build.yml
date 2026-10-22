@@ -1,0 +1,30 @@
+name: Build Phone APK
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, phone]
+permissions:
+  contents: read
+jobs:
+  phone:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+        with:
+          submodules: recursive
+      - uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654
+        with:
+          java-version: '17'
+          distribution: temurin
+          cache: gradle
+      - run: chmod +x gradlew
+      - run: ./gradlew :smarttubetv:assembleStphoneDebug --console=plain
+      - name: Prepare ARM64 download
+        run: |
+          mkdir -p phone-artifact
+          cp smarttubetv/build/outputs/apk/stphone/debug/*arm64-v8a.apk phone-artifact/smarttube.apk
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: smarttube-phone-arm64-debug
+          path: phone-artifact/smarttube.apk
+          if-no-files-found: error

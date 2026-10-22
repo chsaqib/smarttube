@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/watch_root" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#0F0F0F">
+    <ViewStub android:id="@+id/mini_feed_stub" android:layout="@layout/phone_home"
+        android:layout_width="match_parent" android:layout_height="match_parent" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/watch_details"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:clipToPadding="false" android:paddingBottom="12dp" />
+    <FrameLayout android:id="@+id/player_container" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:id="@+id/mini_bar" android:layout_width="match_parent" android:layout_height="40dp"
+        android:layout_gravity="bottom" android:paddingStart="8dp"
+        android:gravity="center_vertical" android:background="#222222" android:visibility="gone"
+        android:clickable="true" android:focusable="true" android:contentDescription="@string/mini_expand">
+        <TextView android:id="@+id/mini_title" android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content" android:maxLines="2" android:ellipsize="end"
+            android:textColor="#FFFFFF" android:textSize="13sp" />
+        <ImageButton android:id="@+id/mini_play" style="@style/WatchControl" android:layout_width="40dp" android:layout_height="40dp" android:padding="8dp"
+            android:src="@drawable/watch_pause" android:contentDescription="@string/watch_pause" />
+        <ImageButton android:id="@+id/mini_close" style="@style/WatchControl" android:layout_width="40dp" android:layout_height="40dp" android:padding="8dp"
+            android:src="@drawable/mini_close" android:contentDescription="@string/mini_close" />
+    </LinearLayout>
+    <ProgressBar android:id="@+id/mini_progress" style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent" android:layout_height="2dp" android:layout_gravity="bottom"
+        android:max="1000" android:progressTint="#FF0033"
+        android:progressBackgroundTint="#555555" android:importantForAccessibility="no" android:visibility="gone" />
+    <FrameLayout android:id="@+id/watch_video_panel" android:layout_width="match_parent"
+        android:layout_height="220dp" android:background="#000000">
+        <fragment android:id="@+id/playback_controls_fragment"
+            android:name="com.liskovsoft.smartyoutubetv2.phone.PhonePlaybackFragment"
+            android:tag="@string/playback_tag" android:layout_width="match_parent" android:layout_height="match_parent" />
+        <View android:id="@+id/watch_touch_target" android:layout_width="match_parent"
+            android:layout_height="match_parent" android:clickable="true" android:focusable="false"
+            android:contentDescription="@string/watch_toggle_controls" />
+        <ProgressBar android:id="@+id/watch_loading" android:layout_width="40dp" android:layout_height="40dp"
+            android:layout_gravity="center" android:indeterminateTint="#FFFFFF" android:visibility="gone" />
+        <FrameLayout android:id="@+id/watch_controls" android:layout_width="match_parent" android:layout_height="match_parent"
+            android:background="#40000000">
+            <ImageButton android:id="@+id/watch_back" style="@style/WatchControl"
+                android:layout_gravity="top|start" android:src="@drawable/watch_back" android:contentDescription="@string/watch_back" />
+            <ImageButton android:id="@+id/watch_settings" style="@style/WatchControl"
+                android:layout_gravity="top|end" android:src="@drawable/watch_settings" android:contentDescription="@string/watch_settings" />
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center"
+                android:gravity="center_vertical" android:orientation="horizontal">
+                <ImageButton android:id="@+id/watch_rewind" style="@style/WatchControl"
+                    android:layout_marginEnd="24dp" android:src="@drawable/watch_rewind" android:contentDescription="@string/watch_rewind" />
+                <ImageButton android:id="@+id/watch_play" style="@style/WatchControl"
+                    android:layout_width="64dp" android:layout_height="40dp" android:padding="12dp"
+                    android:src="@drawable/watch_play" android:contentDescription="@string/watch_play" />
+                <ImageButton android:id="@+id/watch_forward" style="@style/WatchControl"
+                    android:layout_marginStart="24dp" android:src="@drawable/watch_forward" android:contentDescription="@string/watch_forward" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="bottom"
+                android:orientation="vertical">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="48dp" android:gravity="center_vertical">
+                    <TextView android:id="@+id/watch_time" android:layout_width="0dp" android:layout_weight="1"
+                        android:layout_height="wrap_content" android:paddingStart="16dp" android:paddingEnd="8dp"
+                        android:text="0:00 / 0:00" android:textSize="12sp" android:textColor="#FFFFFF" />
+                    <ImageButton android:id="@+id/watch_expand" style="@style/WatchControl"
+                        android:src="@drawable/watch_fullscreen" android:contentDescription="@string/watch_fullscreen" />
+                </LinearLayout>
+                <SeekBar android:id="@+id/watch_seek" android:layout_width="match_parent" android:layout_height="32dp"
+                    android:paddingStart="8dp" android:paddingEnd="8dp" android:progressTint="#FF0033"
+                    android:thumbTint="#FF0033" android:progressBackgroundTint="#80FFFFFF"
+                    android:contentDescription="@string/watch_seek" />
+            </LinearLayout>
+        </FrameLayout>
+    </FrameLayout>
+    </FrameLayout>
+</FrameLayout>

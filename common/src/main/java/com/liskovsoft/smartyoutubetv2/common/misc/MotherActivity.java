@@ -198,7 +198,7 @@ public class MotherActivity extends FragmentActivity {
 
         if (context != null) {
             // NOTE: Use only cached metrics. Because metrics creation involves using WindowManager, which isn't available at this stage.
-            contextWrapper = LocaleContextWrapper.wrap(context, LocaleUpdater.getSavedLocale(context), sCachedDisplayMetrics);
+            contextWrapper = LocaleContextWrapper.wrap(context, LocaleUpdater.getSavedLocale(context), useTvDensity() ? sCachedDisplayMetrics : null);
         }
 
         super.attachBaseContext(contextWrapper);
@@ -257,7 +257,11 @@ public class MotherActivity extends FragmentActivity {
         }
     }
 
+    /** Phone watch screens retain the system density and font scaling. */
+    protected boolean useTvDensity() { return true; }
+
     private void initDpi() {
+        if (!useTvDensity()) return;
         getResources().getDisplayMetrics().setTo(getDisplayMetrics(this));
     }
 

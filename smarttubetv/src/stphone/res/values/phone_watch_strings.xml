@@ -1,0 +1,53 @@
+<resources>
+    <string name="watch_back" translatable="false">Back to videos</string>
+    <string name="watch_play" translatable="false">Play</string>
+    <string name="watch_pause" translatable="false">Pause</string>
+    <string name="watch_settings" translatable="false">Playback settings</string>
+    <string name="watch_rewind" translatable="false">Rewind 10 seconds</string>
+    <string name="watch_forward" translatable="false">Forward 10 seconds</string>
+    <string name="watch_fullscreen" translatable="false">Fullscreen</string>
+    <string name="watch_exit_fullscreen" translatable="false">Exit fullscreen</string>
+    <string name="watch_toggle_controls" translatable="false">Show or hide playback controls</string>
+    <string name="watch_seek" translatable="false">Video position</string>
+    <string name="watch_share" translatable="false">Share</string>
+    <string name="watch_quality" translatable="false">Quality</string>
+    <string name="watch_speed" translatable="false">Playback speed</string>
+    <string name="watch_captions" translatable="false">Captions</string>
+    <string name="watch_captions_off" translatable="false">Off</string>
+    <string name="watch_related" translatable="false">Up next</string>
+    <string name="watch_wait" translatable="false">Available after the video loads</string>
+    <string name="watch_live" translatable="false">LIVE</string>
+    <style name="PhoneWatchTheme" parent="App.Theme.Leanback.Player">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:colorAccent">#FF0033</item>
+        <item name="android:statusBarColor">#000000</item>
+        <item name="android:navigationBarColor">#0F0F0F</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowBackground">#0F0F0F</item>
+    </style>
+    <style name="WatchControl">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">?android:attr/selectableItemBackgroundBorderless</item>
+        <item name="android:tint">#FFFFFF</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+    <style name="WatchPill">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:minWidth">72dp</item>
+        <item name="android:minHeight">40dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:background">@drawable/watch_pill_bg</item>
+    </style>
+</resources>
